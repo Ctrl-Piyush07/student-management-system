@@ -1,0 +1,87 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f7fb;
+}
+
+/* Header */
+.app-header {
+  padding: 20px;
+  text-align: center;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Main layout container */
+.app-main {
+  width: 100%;
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sidebar li.active {
+  background: #374151;
+  color: white;
+  font-weight: 500;
+}
+
+.sidebar li {
+  transition: 0.2s ease;
+}
+
+.addStudentBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 20px;
+  background: #2563eb;
+  color: #ffffff;
+
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 20px;
+
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.18);
+}
+
+.addStudentBtn:hover {
+  background: #1d4ed8;
+  box-shadow: 0 6px 14px rgba(29, 78, 216, 0.3);
+  transform: translateY(-1px);
+}
+
+.addStudentBtn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(29, 78, 216, 0.2);
+}
+
+@media (max-width: 640px) {
+  .addStudentBtn {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+}
