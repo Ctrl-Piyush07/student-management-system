@@ -156,7 +156,41 @@ DELETE /students/:id
 
 ---
 
+## Screenshots
 
+### Students List
+
+![Students List](Screenshots/Students%20list.png)
+
+---
+
+### Add Student Form
+
+![Add Student Form 1](Screenshots/Add%20Student%20Form-1.png)
+
+![Add Student Form 2](Screenshots/Add%20Student%20Form-2.png)
+
+---
+
+### Edit Student Form
+
+![Edit Student Form 1](Screenshots/Edit%20Student%20Form-1.png)
+
+![Edit Student Form 2](Screenshots/Edit%20Student%20Form-2.png)
+
+---
+
+### Notifications
+
+![Notifications](Screenshots/Notification.png)
+
+---
+
+### Database
+
+![Database](Screenshots/Database.png)
+
+---
 
 ## Future Improvements
 
@@ -166,6 +200,7 @@ DELETE /students/:id
 * Role-based access control
 * Export data to Excel/PDF
 * Dashboard analytics
+* Responsive layout
 
 ---
 
