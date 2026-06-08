@@ -121,19 +121,6 @@ http://localhost:5173
 
 ---
 
-## Environment Variables
-
-Create a `.env` file inside the backend folder:
-
-```env
-DB_USER=your_username
-DB_HOST=localhost
-DB_NAME=student_management
-DB_PASSWORD=your_password
-DB_PORT=5432
-```
-
----
 
 ## API Endpoints
 
