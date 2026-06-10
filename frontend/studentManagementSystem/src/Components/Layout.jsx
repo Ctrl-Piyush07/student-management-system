@@ -117,7 +117,9 @@ const Layout = () => {
             <button
               className={styles.notificationBtn}
               onClick={() => setHasNotifications(false)}
-              title="Clear Notifications"
+              title={
+                hasNotifications ? "Clear Notifications" : "No Notifications"
+              }
             >
               <svg
                 width="20"

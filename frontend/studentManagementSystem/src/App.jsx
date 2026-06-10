@@ -188,7 +188,7 @@ function App() {
 
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<Navigate to="/dashboard" />} />
+          <Route path="/" element={<Navigate to="/Students" />} />
           <Route path="/dashboard" element={<h2>Dashboard Page</h2>} />
 
           <Route
@@ -231,7 +231,6 @@ function App() {
                   </svg>
                   Add Student
                 </button>
-
                 {showForm && (
                   <StudentForm
                     editingId={editingId}
@@ -241,16 +240,12 @@ function App() {
                     onClose={() => setShowForm(false)}
                   />
                 )}
-
-                {students.length === 0 ? (
-                  <h3>No students found</h3>
-                ) : (
-                  <StudentTable
-                    students={students}
-                    handleEdit={handleEdit}
-                    handleDelete={handleDelete}
-                  />
-                )}
+                {students.length === 0 && <h3>No students found</h3>}
+                <StudentTable
+                  students={students}
+                  handleEdit={handleEdit}
+                  handleDelete={handleDelete}
+                />
               </>
             }
           />
