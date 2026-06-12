@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import styles from "./StudentForm.module.css";
-import { studentManagementContext } from "./Store/Student-management-store";
+import { studentManagementContext } from "../Store/Student-management-store";
 
 const StudentForm = () => {
   const {

@@ -5,7 +5,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./Components/Layout";
 import toast, { Toaster } from "react-hot-toast";
 import { useContext } from "react";
-import { studentManagementContext } from "./Components/Store/Student-management-store";
+import { studentManagementContext } from "./Store/Student-management-store";
 
 const App = () => {
   const {

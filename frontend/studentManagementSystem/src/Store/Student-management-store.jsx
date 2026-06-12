@@ -1,6 +1,6 @@
 import { createContext, useEffect, useReducer, useState } from "react";
-import api from "../../Services/api";
-import toast, { Toaster } from "react-hot-toast";
+import api from "../Services/api";
+import toast from "react-hot-toast";
 
 export const studentManagementContext = createContext({
   students: [],

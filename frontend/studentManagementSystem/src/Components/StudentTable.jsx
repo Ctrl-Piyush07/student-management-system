@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styles from "./StudentTable.module.css";
-import { studentManagementContext } from "./Store/Student-management-store";
+import { studentManagementContext } from "../Store/Student-management-store";
 
 const StudentTable = () => {
   const { filteredStudents, handleEdit, handleDelete } = useContext(

@@ -1,7 +1,7 @@
 import { Outlet, NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import styles from "./Layout.module.css";
-import { studentManagementContext } from "./Store/Student-management-store";
+import { studentManagementContext } from "../Store/Student-management-store";
 
 const Layout = () => {
   const {
