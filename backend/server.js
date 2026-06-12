@@ -20,7 +20,7 @@ const upload = multer({
   limits: { fileSize: 25 * 1024 * 1024 },
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
   res.send("student management API running");
