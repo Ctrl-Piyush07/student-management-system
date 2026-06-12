@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import pool from "./db.js";
@@ -29,6 +30,7 @@ app.get("/students", async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM students ORDER BY id");
     res.json(result.rows);
+    console.log("Database connection successful");
   } catch (error) {
     console.log(error);
     res.status(500).json({
