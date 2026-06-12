@@ -1,10 +1,15 @@
 import { Outlet, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./Layout.module.css";
+import { studentManagementContext } from "./Store/Student-management-store";
 
 const Layout = () => {
-  const [showProfileMenu, setShowProfileMenu] = useState(false);
-  const [hasNotifications, setHasNotifications] = useState(true);
+  const {
+    showProfileMenu,
+    setShowProfileMenu,
+    hasNotifications,
+    setHasNotifications,
+  } = useContext(studentManagementContext);
 
   return (
     <div className={styles.dashboard}>
@@ -61,7 +66,7 @@ const Layout = () => {
                 Students
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to="/courses"
                 className={({ isActive }) => (isActive ? styles.active : "")}
@@ -79,7 +84,7 @@ const Layout = () => {
                 </svg>
                 Courses
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink
                 to="/settings"
@@ -104,7 +109,8 @@ const Layout = () => {
         </div>
 
         <div className={styles.sidebarFooter}>
-          <small>v1.0.0</small>
+          <p>© {new Date().getFullYear()} Vidyarthi Inc.</p>
+          <small>All Rights Reserved</small>
         </div>
       </aside>
 

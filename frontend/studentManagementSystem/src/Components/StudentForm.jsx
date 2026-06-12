@@ -1,39 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import styles from "./StudentForm.module.css";
+import { studentManagementContext } from "./Store/Student-management-store";
 
-const StudentForm = ({
-  editingId,
-  handleChange,
-  handleSubmit,
-  form,
-  onClose,
-}) => {
-  const [imagePreview, setImagePreview] = useState(null);
-
-  useEffect(() => {
-    if (editingId && form.photoUrl) {
-      setImagePreview(form.photoUrl);
-    } else {
-      setImagePreview(null);
-    }
-  }, [editingId, form.photoUrl]);
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setImagePreview(URL.createObjectURL(file));
-
-      if (handleChange) {
-        handleChange({
-          target: {
-            name: "photo",
-            value: file,
-            files: e.target.files,
-          },
-        });
-      }
-    }
-  };
+const StudentForm = () => {
+  const {
+    editingId,
+    handleChange,
+    handleSubmit,
+    form,
+    imagePreview,
+    handleFileChange,
+    showForm,
+    setShowForm,
+  } = useContext(studentManagementContext);
 
   return (
     <div className={styles.overlay}>
@@ -43,7 +22,7 @@ const StudentForm = ({
           <button
             type="button"
             className={styles.closeBtn}
-            onClick={onClose}
+            onClick={() => setShowForm(false)}
             aria-label="Close modal"
           >
             ✕
@@ -237,7 +216,7 @@ const StudentForm = ({
             <button
               type="button"
               className={styles.cancelBtn}
-              onClick={onClose}
+              onClick={() => setShowForm(false)}
             >
               Cancel
             </button>

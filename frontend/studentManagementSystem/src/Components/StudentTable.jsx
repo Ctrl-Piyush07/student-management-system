@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import styles from "./StudentTable.module.css";
+import { studentManagementContext } from "./Store/Student-management-store";
 
-const StudentTable = ({ students, handleEdit, handleDelete }) => {
+const StudentTable = () => {
+  const { filteredStudents, handleEdit, handleDelete } = useContext(
+    studentManagementContext,
+  );
   return (
     <div className={styles.tableContainer}>
       <table className={styles.table}>
@@ -16,7 +21,7 @@ const StudentTable = ({ students, handleEdit, handleDelete }) => {
         </thead>
 
         <tbody>
-          {students.map((student) => (
+          {filteredStudents.map((student) => (
             <tr key={student.id} className={styles.row}>
               <td
                 className={`${styles.td} ${styles.alignLeft} ${styles.primaryText}`}
