@@ -1,0 +1,13 @@
+# Environment files
+.env
+.env.*
+backend/.env
+
+# Node modules
+node_modules
+backend/node_modules
+frontend/studentManagementSystem/node_modules
+
+# Build folders
+dist
+build
