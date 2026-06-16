@@ -12,6 +12,19 @@ A full-stack Student Management System built using React, Node.js, Express, and 
 * View all students
 * Update student information
 * Delete student records
+* Search students by name
+* Filter students dynamically
+
+### Dashboard Analytics
+
+* Total Students count
+* Courses Offered count
+* Real-time analytics from database
+
+### Data Management
+
+* Export student data to CSV
+* Download student records for external use
 
 ### Profile Image Upload
 
@@ -22,7 +35,6 @@ A full-stack Student Management System built using React, Node.js, Express, and 
 
 ### User Interface
 
-* Responsive dashboard layout
 * Fixed sidebar navigation
 * Modal-based Add/Edit Student form
 * Toast notifications
@@ -194,13 +206,15 @@ DELETE /students/:id
 
 ## Future Improvements
 
-* Search and filtering
-* Pagination
+* CSV Import functionality
+* Data visualization charts
 * Authentication & Authorization
 * Role-based access control
-* Export data to Excel/PDF
-* Dashboard analytics
-* Responsive layout
+* Excel/PDF export support
+* Advanced dashboard analytics
+* Dark/Light theme switching
+* Mobile-first responsive optimization
+* Pagination
 
 ---
 
