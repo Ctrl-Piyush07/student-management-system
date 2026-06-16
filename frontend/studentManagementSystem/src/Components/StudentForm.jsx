@@ -48,14 +48,21 @@ const StudentForm = () => {
               {/* Course */}
               <div className={styles.field}>
                 <label>Course</label>
-                <input
-                  type="text"
+                <select
                   name="course"
                   value={form.course || ""}
                   onChange={handleChange}
-                  placeholder="Enter course"
                   required
-                />
+                >
+                  <option value="">Select Course</option>
+                  <option value="B.Tech">B.Tech</option>
+                  <option value="MBA">MBA</option>
+                  <option value="BBA">BBA</option>
+                  <option value="B.Arch">B.Arch</option>
+                  <option value="B.Des">B.Des</option>
+                  <option value="BCA">BCA</option>
+                  <option value="B.SC">B.SC</option>
+                </select>
               </div>
 
               {/* Year */}

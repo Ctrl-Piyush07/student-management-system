@@ -5,7 +5,9 @@ import toast from "react-hot-toast";
 export const studentManagementContext = createContext({
   students: [],
   filteredStudents: [],
+  courses: [],
   form: {},
+  profileForm: {},
   editingId: null,
   loading: true,
   showForm: false,
@@ -20,6 +22,10 @@ export const studentManagementContext = createContext({
   handleDelete: () => {},
   handleFileChange: () => {},
   handleAddStudent: () => {},
+  filterByCourse: () => {},
+  changeProfileInfo: () => {},
+  saveProfileInfo: () => {},
+  exportStudents: () => {},
   setForm: () => {},
   setEditingId: () => {},
   setLoading: () => {},
@@ -28,6 +34,7 @@ export const studentManagementContext = createContext({
   setShowProfileMenu: () => {},
   setHasNotifications: () => {},
   setSearchTerm: () => {},
+  setProfileForm: () => {},
 });
 
 const handleStudents = (currentStudents, action) => {
@@ -74,6 +81,16 @@ const StudentManagementContextProvider = ({ children }) => {
   const [hasNotifications, setHasNotifications] = useState(true);
 
   const [searchTerm, setSearchTerm] = useState("");
+
+  const courses = ["B.Tech", "MBA", "BBA", "B.Arch", "B.Des", "BCA", "B.SC"];
+
+  const [profileForm, setProfileForm] = useState({
+    name: "",
+    email: "",
+    role: "Administrator",
+    theme: "Light",
+    language: "English",
+  });
 
   useEffect(() => {
     const fetchStudents = async () => {
@@ -261,6 +278,54 @@ const StudentManagementContextProvider = ({ children }) => {
       student.year.toString().includes(search),
   );
 
+  const filterByCourse = (courseName) => {
+    const studentsByCourse = students.filter(
+      (student) => student.course === courseName,
+    );
+    return studentsByCourse;
+  };
+
+  const changeProfileInfo = (e) => {
+    const { name, value } = e.target;
+    setProfileForm({
+      ...profileForm,
+      [name]: value,
+    });
+  };
+
+  const saveProfileInfo = (e) => {
+    e.preventDefault();
+  };
+
+  const exportStudents = () => {
+    const headers = Object.keys(students[0]).filter(
+      (header) => header !== "photo_url",
+    );
+
+    const rows = students.map((student) =>
+      headers.map((header) => student[header]),
+    );
+    // console.log(rows);
+
+    const csvContent = [
+      headers.join(","),
+      ...rows.map((row) => row.join(",")),
+    ].join("\n");
+    // console.log(csvContent);
+
+    const blob = new Blob([csvContent], {
+      type: "text/csv;charset=utf-8;",
+    });
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "students.csv";
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <studentManagementContext.Provider
       value={{
@@ -288,6 +353,13 @@ const StudentManagementContextProvider = ({ children }) => {
         searchTerm,
         setSearchTerm,
         filteredStudents,
+        filterByCourse,
+        courses,
+        profileForm,
+        setProfileForm,
+        changeProfileInfo,
+        saveProfileInfo,
+        exportStudents,
       }}
     >
       {children}

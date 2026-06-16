@@ -152,9 +152,18 @@
 
 .navbar h3 {
   margin: 0;
-  font-size: 18px;
+  padding-left: 4px;
+  font-size: 1.375rem; /* Upgraded from 18px */
   font-weight: 700;
   color: #0f172a;
+  letter-spacing: 0.3px;
+  font-family:
+    "Noto Sans Devanagari",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* INTERACTIVE ACTION ELEMENTS CONTAINER */

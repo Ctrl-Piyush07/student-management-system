@@ -9,6 +9,7 @@ const Layout = () => {
     setShowProfileMenu,
     hasNotifications,
     setHasNotifications,
+    profileForm,
   } = useContext(studentManagementContext);
 
   return (
@@ -66,25 +67,6 @@ const Layout = () => {
                 Students
               </NavLink>
             </li>
-            {/* <li>
-              <NavLink
-                to="/courses"
-                className={({ isActive }) => (isActive ? styles.active : "")}
-              >
-                <svg
-                  className={styles.icon}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                </svg>
-                Courses
-              </NavLink>
-            </li> */}
             <li>
               <NavLink
                 to="/settings"
@@ -116,7 +98,7 @@ const Layout = () => {
 
       <div className={styles.mainWrapper}>
         <nav className={styles.navbar}>
-          <h3>Student Management System</h3>
+          <h3>विद्यार्थी</h3>
 
           <div className={styles.navActions}>
             {/* Notification Bell */}
@@ -168,8 +150,14 @@ const Layout = () => {
               {showProfileMenu && (
                 <div className={styles.dropdownMenu}>
                   <div className={styles.dropdownHeader}>
-                    <strong>Piyush Sharma</strong>
-                    <span>admin@vidyarthi.com</span>
+                    <strong>
+                      {profileForm.name ? profileForm.name : "Admin"}
+                    </strong>
+                    <span>
+                      {profileForm.email
+                        ? profileForm.email
+                        : "admin@vidyarthi.com"}
+                    </span>
                   </div>
                   <hr className={styles.divider} />
                   <a href="#profile" className={styles.dropdownItem}>

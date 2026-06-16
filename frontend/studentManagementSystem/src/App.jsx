@@ -6,10 +6,13 @@ import Layout from "./Components/Layout";
 import toast, { Toaster } from "react-hot-toast";
 import { useContext } from "react";
 import { studentManagementContext } from "./Store/Student-management-store";
+import Dashboard from "./Components/Dashboard";
+import PageSkeleton from "./Components/Loader/PageSkeleton";
+import Settings from "./Components/Settings";
 
 const App = () => {
   const {
-    students,
+    filteredStudents,
     loading,
     showForm,
     handleAddStudent,
@@ -18,8 +21,10 @@ const App = () => {
     setSearchTerm,
   } = useContext(studentManagementContext);
 
+  const count = filteredStudents.length;
+
   if (loading) {
-    return <h2 className="loading-text">Loading student database...</h2>;
+    return <PageSkeleton />;
   }
 
   return (
@@ -48,7 +53,7 @@ const App = () => {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Navigate to="/Students" />} />
-          <Route path="/dashboard" element={<h2>Dashboard Page</h2>} />
+          <Route path="/dashboard" element={<Dashboard />} />
 
           <Route
             path="/students"
@@ -85,13 +90,23 @@ const App = () => {
                   />
                 </div>
                 {showForm && <StudentForm />}
-                {students.length === 0 && <h3>No students found</h3>}
+                {count === 0 ? (
+                  <h3>No students found</h3>
+                ) : count > 1 ? (
+                  <h3>
+                    {count} of {count} students
+                  </h3>
+                ) : (
+                  <h3>
+                    {count} of {count} student
+                  </h3>
+                )}
                 <StudentTable />
               </>
             }
           />
-          <Route path="/courses" element={<h2>Courses Page</h2>} />
-          <Route path="/settings" element={<h2>Settings Page</h2>} />
+          {/* <Route path="/courses" element={<h2>Courses Page</h2>} /> */}
+          <Route path="/settings" element={<Settings />} />
         </Route>
       </Routes>
     </>
