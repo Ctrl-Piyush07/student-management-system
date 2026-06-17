@@ -115,6 +115,13 @@ const StudentManagementContextProvider = ({ children }) => {
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
+
+    if (name === "mobile") {
+      const mobile = value.replace("/\D/g", "").slice(0, 10);
+      setForm({ ...form, mobile });
+      return;
+    }
+
     if (name === "photo") {
       const fileObject = files ? files[0] : value;
       if (fileObject) {
@@ -135,6 +142,11 @@ const StudentManagementContextProvider = ({ children }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (form.mobile.length !== 10) {
+      toast.error("Mobile number should contain 10 digits!");
+      return;
+    }
 
     const formData = new FormData();
     formData.append("name", form.name);
@@ -287,6 +299,7 @@ const StudentManagementContextProvider = ({ children }) => {
 
   const changeProfileInfo = (e) => {
     const { name, value } = e.target;
+
     setProfileForm({
       ...profileForm,
       [name]: value,

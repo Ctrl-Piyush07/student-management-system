@@ -112,6 +112,7 @@ const StudentForm = () => {
                   value={form.mobile || ""}
                   onChange={handleChange}
                   placeholder="Enter mobile number"
+                  maxLength={10}
                   required
                 />
               </div>
