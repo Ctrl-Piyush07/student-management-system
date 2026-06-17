@@ -2,6 +2,19 @@
 
 A full-stack Student Management System built using React, Node.js, Express, and PostgreSQL. The application provides a centralized platform for managing student records, including student details, profile images, enrollment information, and academic data.
 
+## Highlights
+
+* Full-stack CRUD application
+* PostgreSQL database integration
+* CSV export functionality
+* Search and filtering
+* Dashboard analytics
+* Cloud deployment using Vercel, Render, and Neon
+
+## Live Demo
+
+🔗 [View Live Application](https://student-management-system-three-ochre.vercel.app/)
+
 ---
 
 ## Features
@@ -26,6 +39,13 @@ A full-stack Student Management System built using React, Node.js, Express, and 
 * Export student data to CSV
 * Download student records for external use
 
+### Settings
+
+* Profile management
+* Theme preferences
+* Language preferences
+* Data export tools
+
 ### Profile Image Upload
 
 * Upload student profile photos
@@ -40,6 +60,7 @@ A full-stack Student Management System built using React, Node.js, Express, and 
 * Toast notifications
 * Dynamic course badges
 * Modern UI using CSS Modules
+* Skeleton loading screens
 
 ### Database Operations
 
@@ -71,6 +92,19 @@ A full-stack Student Management System built using React, Node.js, Express, and 
 
 ---
 
+## Deployment
+
+### Frontend
+* Vercel
+
+### Backend
+* Render
+
+### Database
+* Neon PostgreSQL
+
+---
+
 ## Project Structure
 
 ```text
@@ -79,16 +113,34 @@ student-management-system/
 ├── backend/
 │   ├── db.js
 │   ├── server.js
-│   ├── package.json
+│   └── package.json
 │
 ├── frontend/
-│   ├── src/
-│   │   ├── Components/
-│   │   ├── Services/
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   │
-│   ├── package.json
+│   └── studentManagementSystem/
+│       ├── public/
+│       ├── src/
+│       │   ├── assets/
+│       │   ├── Components/
+│       │   │   ├── Loader/
+│       │   │   ├── Dashboard.jsx
+│       │   │   ├── Layout.jsx
+│       │   │   ├── Settings.jsx
+│       │   │   ├── StudentForm.jsx
+│       │   │   └── StudentTable.jsx
+│       │   │
+│       │   ├── Services/
+│       │   │   └── api.js
+│       │   │
+│       │   ├── Store/
+│       │   │   └── Student-management-store.jsx
+│       │   │
+│       │   ├── App.jsx
+│       │   └── main.jsx
+│       │
+│       ├── package.json
+│       └── vercel.json
+│
+├── Screenshots/
 │
 └── README.md
 ```
@@ -120,7 +172,7 @@ http://localhost:5000
 ### 3. Frontend Setup
 
 ```bash
-cd frontend/studentManagementSys
+cd frontend/studentManagementSystem
 npm install
 npm run dev
 ```
@@ -170,9 +222,21 @@ DELETE /students/:id
 
 ## Screenshots
 
+### Dashboard
+
+![Dashboard](Screenshots/Dashboard.png)
+
+---
+
 ### Students List
 
 ![Students List](Screenshots/Students%20list.png)
+
+---
+
+### Search & Filtering
+
+![Search](Screenshots/Search.png)
 
 ---
 
@@ -192,15 +256,21 @@ DELETE /students/:id
 
 ---
 
+### Settings Page
+
+![Settings](Screenshots/Settings.png)
+
+---
+
 ### Notifications
 
 ![Notifications](Screenshots/Notification.png)
 
 ---
 
-### Database
+### Neon PostgreSQL Database
 
-![Database](Screenshots/Database.png)
+![Neon Database](Screenshots/Neon-Database.png)
 
 ---
 
@@ -222,4 +292,6 @@ DELETE /students/:id
 
 **Piyush Sharma**
 
-GitHub: https://github.com/Ctrl-Piyush07
+GitHub: [Ctrl-Piyush07](https://github.com/Ctrl-Piyush07)
+
+Project Repository: [student-management-system](https://github.com/Ctrl-Piyush07/student-management-system)
